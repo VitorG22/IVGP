@@ -24,7 +24,10 @@ export function LoginPage() {
             var accessToken:string = await getToken(code)
             console.log(accessToken)
             setToken(accessToken)
-            setConnectedUserData(await getConnectedUser(accessToken))
+
+            let connectedUser = await getConnectedUser(accessToken)
+            console.log(connectedUser)
+            setConnectedUserData(connectedUser)
             navigate('/home')
         }catch(err){
             console.log('err', err)

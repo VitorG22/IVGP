@@ -65,7 +65,10 @@ export interface ICommit {
 // espera um codigo como parametro e o troca por um token de acesso 
 export async function getToken(code: string) {
     try {
-        const response = await axios.post(`${API_URL}/token`, { code })
+        // const response = await axios.post(`http://localhost:3030/token`, { 
+        const response = await axios.post(`${API_URL}/token`, { 
+            code: code
+        })
         const accessToken = response.data
         return accessToken
     } catch (error) {
@@ -76,8 +79,8 @@ export async function getToken(code: string) {
 // retorna as informações do usuario conectado
 export async function getConnectedUser(accessToken: string) {
     try {
-        // const response = await axios.post(`${API_URL}/user/connected`, {
-        const response = await axios.post(`http://localhost:3030/user/connected`, {
+        // const response = await axios.post(`http://localhost:3030/user/connected`, {
+        const response = await axios.post(`${API_URL}/user/connected`, {
             accessToken: accessToken
         })
         const connectedUserData = response.data
@@ -89,8 +92,8 @@ export async function getConnectedUser(accessToken: string) {
 }
 export async function getUser({accessToken, userName}:{accessToken:string , userName: string} ) {
     try {
-        // const response = await axios.post(`${API_URL}/user`, {
-        const response = await axios.post(`http://localhost:3030/user`, {
+        // const response = await axios.post(`http://localhost:3030/user`, {
+        const response = await axios.post(`${API_URL}/user`, {
             accessToken: accessToken,
             userName: userName
         })
@@ -122,7 +125,6 @@ export async function getRepos({ accessToken, reposUserOwnerName }: { accessToke
 // retorna o nome e o ultimo commite de todas as branches de um repositiorio
 export async function getBranches({ accessToken, reposUserOwnerName, repoName }: { accessToken: string, reposUserOwnerName: string, repoName: string }) {
     try {
-        // const response = await axios.post(`${API_URL}/repos`, {
         const response = await axios.post(`${API_URL}/repo/branches`, {
             repoName: repoName,
             accessToken: accessToken,
