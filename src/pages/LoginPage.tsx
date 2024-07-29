@@ -47,10 +47,10 @@ export function LoginPage() {
 
 
     return (
-        <section className="h-screen w-screen bg-slate-950 flex items-center justify-center">
+        <section className="h-screen w-screen bg-git-950 flex items-center justify-center">
             <button
                 onClick={() => redirectToGitHub()}
-                className=' flex flex-row items-center gap-2 px-4 py-2 bg-slate-900 text-neutral-200 rounded-sm'>
+                className=' flex flex-row items-center gap-2 px-4 py-2 bg-git-800 text-git-text-primary rounded-sm'>
                 <GithubIcon color='white' size={20} strokeWidth={2} />
                 Login With GitHub
             </button>

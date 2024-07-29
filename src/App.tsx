@@ -13,7 +13,7 @@ function App() {
   }, [])
 
   return (
-    <main className='min-h-screen w-screen bg-slate-950 pt-14 '>
+    <main className='min-h-screen w-screen bg-zinc-950 pt-14 '>
       <NavBar />
       <Outlet />
     </main>

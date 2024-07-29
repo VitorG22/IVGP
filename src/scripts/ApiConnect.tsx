@@ -76,12 +76,27 @@ export async function getToken(code: string) {
 // retorna as informações do usuario conectado
 export async function getConnectedUser(accessToken: string) {
     try {
-        const response = await axios.post(`${API_URL}/user`, {
+        // const response = await axios.post(`${API_URL}/user/connected`, {
+        const response = await axios.post(`http://localhost:3030/user/connected`, {
             accessToken: accessToken
         })
         const connectedUserData = response.data
         console.log(connectedUserData)
         return connectedUserData
+    } catch (error) {
+        console.log('err', error)
+    }
+}
+export async function getUser({accessToken, userName}:{accessToken:string , userName: string} ) {
+    try {
+        // const response = await axios.post(`${API_URL}/user`, {
+        const response = await axios.post(`http://localhost:3030/user`, {
+            accessToken: accessToken,
+            userName: userName
+        })
+        const UserData = response.data
+        console.log(UserData)
+        return UserData
     } catch (error) {
         console.log('err', error)
     }
