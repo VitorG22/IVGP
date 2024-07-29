@@ -21,7 +21,10 @@ export function LoginPage() {
 
     async function fetchAccessToken(code: string) {
         try{
-            var accessToken:string = await getToken(code)
+            var accessToken:string = await getToken({
+                code: code,
+                REDIRECT_URL: REDIRECT_URL 
+            })
             console.log(accessToken)
             setToken(accessToken)
 

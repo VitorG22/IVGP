@@ -63,11 +63,12 @@ export interface ICommit {
 
 
 // espera um codigo como parametro e o troca por um token de acesso 
-export async function getToken(code: string) {
+export async function getToken({code, REDIRECT_URL}:{code: string, REDIRECT_URL:string}) {
     try {
         // const response = await axios.post(`http://localhost:3030/token`, { 
         const response = await axios.post(`${API_URL}/token`, { 
-            code: code
+            code: code,
+            REDIRECT_URL: REDIRECT_URL
         })
         const accessToken = response.data
         return accessToken
