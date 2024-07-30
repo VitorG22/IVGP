@@ -49,7 +49,9 @@ export function LoginPage() {
 
         const queryStrings = queryString.stringify(params)
         const authURL = `${GITHUB_URL}?${queryStrings}`
-        window.location.href = authURL
+        console.log(params)
+        console.log(authURL)
+        // window.location.href = authURL
     }
 
 
