@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import UseAppContext from "./hooks/useAppContext"
 import NavBar from "./components/Nav"
 import { Outlet, useNavigate } from "react-router-dom"
@@ -6,11 +5,9 @@ import { Outlet, useNavigate } from "react-router-dom"
 function App() {
   const { token } = UseAppContext()
   const navigate = useNavigate()
-  useEffect(() => {
-    if (!token) {
-      navigate('/')
-    }
-  }, [])
+  if (!token) {
+    navigate('/')
+  }
 
   return (
     <main className='min-h-screen w-screen bg-zinc-950 pt-14 '>

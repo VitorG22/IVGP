@@ -40,7 +40,7 @@ export default function BranchPanel({ repoName, userName, commitId }: { commitId
                 <Loading />
             ):(
             <>
-                <h4 className="text-slate-200/20">Commits :</h4>
+                <h4 className="text-git-text-secondary">Commits :</h4>
                 <ul className='flex flex-col gap-2'>
                     {commitsList?.map(commit =>
                         <li key={commit.commitData.sha}>
