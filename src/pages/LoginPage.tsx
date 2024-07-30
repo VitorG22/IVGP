@@ -1,18 +1,19 @@
 import { GithubIcon } from "lucide-react";
 import { getConnectedUser, getToken } from "../scripts/ApiConnect.tsx";
 import queryString from "query-string";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import UseAppContext from "../hooks/useAppContext.tsx";
 import { useNavigate } from "react-router-dom";
 
 
 export function LoginPage() {
     const {setToken, setConnectedUserData}= UseAppContext()
-    const CLIENT_ID = import.meta.env.VITE_CLIENT_ID
+    const [CLIENT_ID, set_CLIENT_ID] = useState<string>('')
     const REDIRECT_URL = import.meta.env.VITE_REDIRECT_URL ?? "http://localhost:5173/"
     const navigate = useNavigate()
 
     useEffect(() => {
+        set_CLIENT_ID(import.meta.env.VITE_CLIENT_ID)
         const code = queryString.parseUrl(window.location.href).query.code
         if (typeof code == "string") {
             fetchAccessToken(code)
