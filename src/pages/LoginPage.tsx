@@ -32,7 +32,7 @@ export function LoginPage() {
             let connectedUser = await getConnectedUser(accessToken)
             console.log(connectedUser)
             setConnectedUserData(connectedUser)
-            navigate('/home')
+            navigate(`${connectedUser.login}/home`)
         }catch(err){
             console.log('err', err)
         }

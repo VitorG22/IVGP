@@ -8,6 +8,7 @@ export default {
   theme: {
     extend: {},
     colors:{
+      transparent: 'transparent',
       emerald: colors.emerald,
       red: colors.red,
       cyan: colors.cyan,
@@ -23,7 +24,8 @@ export default {
         300: '#C9D1D9',
         'text-primary': '#E6EDF3',
         'text-secondary': '#8D96A0',
-        'text-blue': '#4493F8'
+        'text-blue': '#4493F8',
+        'red':'#F78166'
       }
     }
   },

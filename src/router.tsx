@@ -10,15 +10,15 @@ const router = createBrowserRouter([
         element: <LoginPage />
     },
     { 
-        path: '/',
+        path: '/:userName',
         element: <App />,
         children:[
             { 
-                path: '/home',
+                path: '/:userName/home',
                 element: <HomePage />
             },
             {
-                path: '/repo/:repoName',
+                path: '/:userName/repo/:repoName',
                 element: <RepoPage />
             }
         ]
