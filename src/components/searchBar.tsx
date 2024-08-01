@@ -19,7 +19,7 @@ export default function SearchBar(){
                 userName: searchBarValue
             })
             if(user){
-                navigate(`/${user.login}/home`)
+                navigate(`/users/${user.login}`)
             }
         }
     }
@@ -31,7 +31,9 @@ export default function SearchBar(){
                 searchBarEnter()
             }}
             className='flex flex-row items-center gap-2'>
-                <label htmlFor="SearchBar" className='text-git-text-primary text-sm font-thin'>Search for User</label>
+                {/* <label htmlFor="SearchBar" className='text-git-text-secondary text-sm font-thin'>
+                    Search for User
+                </label> */}
                 <div className='flex flex-row items-center border border-git-600 rounded-md'>
                     <button className='p-2 pr-0'>
                         <Search size={13} strokeWidth={1} className='stroke-git-text-primary' />

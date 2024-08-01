@@ -11,9 +11,9 @@
 *::-webkit-scrollbar{
   width: 4px;
   height: 0;
-  background-color: #020616
+  background-color: #010409
 }
 
 *::-webkit-scrollbar-thumb{
-  background: #101728
+  background: #2A2F37
 }

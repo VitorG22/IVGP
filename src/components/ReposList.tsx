@@ -26,8 +26,8 @@ export default function ReposList({userName}:{userName:string}) {
     }
 
     return (
-        <section className="h-full flex items-center justify-center overflow-x-hidden ">
-            <ul className='flex flex-row flex-wrap gap-2 p-4 w-fit justify-start '>
+        <section className="h-full flex items-start justify-center w-full overflow-x-hidden">
+            <ul className='max-h-full h-fit flex flex-row flex-wrap gap-2 p-4 w-full justify-start items-start overflow-y-scroll'>
                 {reposToRender.map((repoData: IRepos) =>
                     <RepoDataCard repoData={repoData} />
                 )}
@@ -39,19 +39,15 @@ export default function ReposList({userName}:{userName:string}) {
 function RepoDataCard({ repoData }: { repoData: IRepos }) {
 
     var updated_at = repoData.updated_at.split('T')
-    console.log(updated_at[0])
 
     return (
-        <NavLink to={`/${repoData.owner.login}/repo/${repoData.name}`}>
-            <li className="flex flex-row items-start justify-between h-20 w-80 border border-git-600 bg-git-800 p-4 
-            bg-git-900/50">
+        <li className='h-fit'>
+            <NavLink
+            to={`/${repoData.owner.login}/repo/${repoData.name}`}
+            className="flex flex-row items-start justify-between h-20 w-80 border border-git-600 bg-git-800 p-4 bg-git-900/50">
                 <article className='flex flex-col items-start gap-2 w-3/4 '>
-                <div className='flex flex-row gap-2 items-center'>
-                    <img src={repoData.owner.avatar_url} 
-                    className='rounded-full h-4 aspect-square' />
                     <p className='text-git-text-secondary text-xs'>
                         {repoData.owner.login}</p>
-                </div>
                     <h1 className='text-git-text-primary w-full overflow-hidden overflow-ellipsis whitespace-nowrap'>
                         {repoData.name}</h1>
                 </article>
@@ -60,7 +56,7 @@ function RepoDataCard({ repoData }: { repoData: IRepos }) {
                     <p className='text-git-text-secondary text-xs'>{updated_at[0]}</p>
 
                 </article>
-            </li>
-        </NavLink>
+            </NavLink>
+        </li>
     )
 }

@@ -6,7 +6,7 @@ export default function HomePage() {
     
     
     return (
-        <main className='min-h-screen w-full bg-git-950 '>
+        <main className='h-full w-full bg-git-950 '>
             {userName && <ReposList userName={userName}/>}
         </main>
     )

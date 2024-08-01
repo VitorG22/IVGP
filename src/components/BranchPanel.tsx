@@ -35,13 +35,13 @@ export default function BranchPanel({ repoName, userName, commitId }: { commitId
 
 
     return (
-        <section className=' flex flex-col gap-2 mx-4 py-4'>
+        <section className=' flex flex-col gap-2 pb-8 h-full'>
             {isGetingCommitList ? (
                 <Loading />
             ):(
             <>
-                <h4 className="text-git-text-secondary">Commits :</h4>
-                <ul className='flex flex-col gap-2'>
+                <h4 className="text-git-text-secondary ml-4">Commits :</h4>
+                <ul className='flex flex-col gap-2  h-full overflow-y-scroll pb-8 px-4'>
                     {commitsList?.map(commit =>
                         <li key={commit.commitData.sha}>
                             <CommitCard commitData={commit} />

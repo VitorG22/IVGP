@@ -2,6 +2,15 @@ import axios from "axios"
 
 const API_URL = import.meta.env.VITE_BACK_END_URL
 
+export interface IUser {
+    avatar_url: string
+    email: string
+    followers: number
+    html_url: string
+    id: number
+    login: string
+    
+}
 export interface IRepos {
     id: number,
     commits_url: string,

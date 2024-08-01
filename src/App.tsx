@@ -1,19 +1,29 @@
 import UseAppContext from "./hooks/useAppContext"
 import NavBar from "./components/Nav"
 import { Outlet, useNavigate } from "react-router-dom"
+import { useEffect } from "react"
 
 function App() {
   const { token } = UseAppContext()
   const navigate = useNavigate()
-  if (!token) {
-    navigate('/')
-  }
+  console.log(token)
+  useEffect(() => {
+    if (!token) {
+      navigate('/')
+    }
+  }, [])
 
   return (
-    <main className='min-h-screen w-screen bg-zinc-950 pt-14 '>
-      <NavBar />
-      <Outlet />
-    </main>
+    <>
+      {token &&
+        <main className='h-full w-screen'>
+          <NavBar />
+          <div className="h-[calc(100vh-3.5rem)] overflow-hidden w-screen mt-14">
+            <Outlet />
+          </div>
+        </main>
+      }
+    </>
   )
 }
 

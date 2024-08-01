@@ -10,8 +10,8 @@ export default function RepoPage() {
     const [selectedBranchIndex, setSelectedBranchIndex] = useState<number>(0)
     const [isBranchMenuOpen, setIsBranchMenuOpen] = useState<boolean>(false)
 
-    const { token, connectedUserData } = UseAppContext()
-    const { repoName } = useParams()
+    const { token } = UseAppContext()
+    const { repoName, userName } = useParams()
 
     useEffect(() => {
         if (!repoName) {
@@ -24,18 +24,18 @@ export default function RepoPage() {
 
 
     async function getBranchesFromGitHubApi() {
-        if (!repoName) {
+        if (!repoName || !userName) {
             return []
         }
         setBranches(await getBranches({
             accessToken: token,
             repoName: repoName,
-            reposUserOwnerName: connectedUserData.login
+            reposUserOwnerName: userName
         }))
     }
 
     return (
-        <section className='bg-git-800 min-h-screen pb-4'>
+        <section className='bg-git-800 h-full pb-4'>
             {branches.length >= 1 && (
                 <>
                     <div className="flex flex-row items-center p-4 gap-4">
@@ -68,11 +68,11 @@ export default function RepoPage() {
                         </div>
                     </div>
 
-                    {repoName &&
+                    {(repoName && userName) &&
                         < BranchPanel
                             commitId={branches[selectedBranchIndex].commit.sha}
                             repoName={repoName}
-                            userName={connectedUserData.login}
+                            userName={userName}
                         />
                     }
                 </>
