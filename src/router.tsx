@@ -4,11 +4,17 @@ import HomePage from "./pages/homePage";
 import RepoPage from "./pages/RepoPage";
 import App from "./App";
 import UsersPage from "./pages/UsersPage";
+import ErrorPage from "./pages/errorPage";
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <LoginPage />
+        element: <LoginPage />,
+        errorElement: <ErrorPage/>
+    },
+    {
+        path: '/error',
+        element: <ErrorPage />,
     },
     { 
         path: '/:userName',
