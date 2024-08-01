@@ -10,13 +10,14 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <LoginPage />,
-        errorElement: <ErrorPage/>
+        errorElement: <ErrorPage />
     },
-    { 
+    {
         path: '/:userName',
         element: <App />,
-        children:[
-            { 
+        errorElement: <ErrorPage />,
+        children: [
+            {
                 path: '/:userName/home',
                 element: <HomePage />
             },
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
     {
         path: '/users',
         element: <App />,
-        children:[
+        children: [
             {
                 path: '/users/',
                 element: <UsersPage />,
@@ -38,8 +39,8 @@ const router = createBrowserRouter([
                 path: '/users/:userName',
                 element: <UsersPage />,
             }
-        ] 
+        ]
     }
-    
+
 ])
 export default router 
